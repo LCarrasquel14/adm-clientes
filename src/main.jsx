@@ -4,7 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import NuevoCliente from "./pages/NuevoCliente";
-import Index from "./pages/Index";
+import { Index, louder as clienteLouder } from "./pages/Index";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +14,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Index />,
+        loader: clienteLouder,
       },
       {
         path: "/clientes/nuevo",
