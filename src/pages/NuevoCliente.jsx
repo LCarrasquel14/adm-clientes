@@ -19,13 +19,14 @@ export async function action({ request }) {
   Object.values(datos).includes("") &&
     errores.push("todos los campos son obligatorios");
 
+  //retornar si hay errores
   if (Object.keys(errores).length) {
     return errores;
   }
 
   await agregarCliente(datos);
 
-  return null;
+  return redirect("/");
 }
 
 const NuevoCliente = () => {

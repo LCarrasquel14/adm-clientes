@@ -27,3 +27,31 @@ export async function agregarCliente(datos) {
     console.log(error);
   }
 }
+
+export async function actualizarCliente(id, datos) {
+  const url = "http://localhost:3000/clientes";
+  try {
+    const respuesta = await fetch(`${url}/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    await respuesta.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function eliminarCliente(id) {
+  const url = "http://localhost:3000/clientes";
+  try {
+    const respuesta = await fetch(`${url}/${id}`, {
+      method: "DELETE",
+    });
+    await respuesta.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
